@@ -1,5 +1,5 @@
 {
-  "name": "@bloc/core",
+  "name": "@bloc/vue",
   "version": "1.0.0",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -11,6 +11,9 @@
     "access": "public"
   },
   "dependencies": {
-    "rxjs": "^7.8.1"
+    "vue": "^3.0.0"
+  },
+  "devDependencies": {
+    "@types/vue": "^1.0.31"
   }
 }

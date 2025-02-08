@@ -1,5 +1,5 @@
 {
-  "name": "@bloc/core",
+  "name": "@bloc/solid",
   "version": "1.0.0",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -9,8 +9,5 @@
   },
   "publishConfig": {
     "access": "public"
-  },
-  "dependencies": {
-    "rxjs": "^7.8.1"
   }
 }

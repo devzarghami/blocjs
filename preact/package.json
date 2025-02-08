@@ -1,5 +1,5 @@
 {
-  "name": "@bloc/core",
+  "name": "@bloc/preact",
   "version": "1.0.0",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -11,6 +11,6 @@
     "access": "public"
   },
   "dependencies": {
-    "rxjs": "^7.8.1"
+    "preact": "^10.25.4"
   }
 }
