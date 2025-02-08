@@ -9,5 +9,8 @@
   },
   "publishConfig": {
     "access": "public"
+  },
+  "dependencies": {
+    "svelte": "^5.19.9"
   }
 }

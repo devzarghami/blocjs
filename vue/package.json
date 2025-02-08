@@ -11,9 +11,9 @@
     "access": "public"
   },
   "dependencies": {
-    "vue": "^3.0.0"
+    "vue": "^3.5.13"
   },
   "devDependencies": {
-    "@types/vue": "^1.0.31"
+    "@types/vue": "^2.0.0"
   }
 }

@@ -5,9 +5,20 @@
   "types": "dist/index.d.ts",
   "license": "MIT",
   "scripts": {
-    "build": "tsc"
+    "build": "ngc"
   },
   "publishConfig": {
     "access": "public"
+  },
+  "dependencies": {
+    "@angular/common": "^19.1.5",
+    "@angular/core": "^19.1.5",
+    "rxjs": "^7.8.1"
+  },
+  "devDependencies": {
+    "@angular/compiler": "^19.1.5",
+    "@angular/compiler-cli": "^19.1.5",
+    "@types/node": "^22.13.1",
+    "typescript": "^5.2.2"
   }
 }

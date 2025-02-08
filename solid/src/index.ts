@@ -19,14 +19,14 @@ export function useBloc<D, E>(subject: Observable<D>, initialValue?: D) {
 	createEffect(() => {
 		subscription = subject.subscribe({
 			next: (newData: D) => {
-				setData(newData);
+				setData(() => newData as Exclude<D, Function>);
 				setLoading(false);
 				setError(null);
 			},
 			error: (err: E) => {
 				setData(null);
 				setLoading(false);
-				setError(err);
+				setError(() => err as Exclude<E, Function>);
 			},
 			complete: () => {
 				setLoading(false);

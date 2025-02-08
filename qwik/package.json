@@ -9,5 +9,8 @@
   },
   "publishConfig": {
     "access": "public"
+  },
+  "dependencies": {
+    "@builder.io/qwik": "^1.12.0"
   }
 }

@@ -1,31 +1,38 @@
-import { h } from 'preact';
-import { useEffect, useState } from 'preact/hooks';
-import { Observable } from 'rxjs';
+import {useEffect, useState} from 'preact/hooks';
+import {Observable} from 'rxjs';
 
-const BlocBuilder = ({ subject, initialValue, builder }) => {
-	const [data, setData] = useState(initialValue || null);
-	const [loading, setLoading] = useState(initialValue === undefined);
-	const [error, setError] = useState(null);
+// Define the state interface
+interface BlocState<T, E> {
+    data: T | null;
+    loading: boolean;
+    error: E | null;
+}
 
-	useEffect(() => {
-		const subscription = subject.subscribe({
-			next: (newData) => {
-				setData(newData);
-				setLoading(false);
-				setError(null);
-			},
-			error: (err) => {
-				setData(null);
-				setLoading(false);
-				setError(err);
-			},
-			complete: () => setLoading(false),
-		});
+// Define the props interface
+interface BlocBuilderProps<T, E> {
+    subject: Observable<T>;
+    initialValue?: T;
+    builder: (state: BlocState<T, E>) => preact.JSX.Element;
+}
 
-		return () => subscription.unsubscribe();
-	}, [subject]);
+const BlocBuilder = <T, E>({subject, initialValue, builder}: BlocBuilderProps<T, E>) => {
+    const [state, setState] = useState<BlocState<T, E>>({
+        data: initialValue || null,
+        loading: initialValue === undefined,
+        error: null,
+    });
 
-	return builder({ data, loading, error });
+    useEffect(() => {
+        const subscription = subject.subscribe({
+            next: (data: T) => setState({data, loading: false, error: null}),
+            error: (error: E) => setState({data: null, loading: false, error}),
+            complete: () => setState((prev) => ({...prev, loading: false})),
+        });
+
+        return () => subscription.unsubscribe();
+    }, [subject]);
+
+    return builder(state);
 };
 
 export default BlocBuilder;

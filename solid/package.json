@@ -9,5 +9,8 @@
   },
   "publishConfig": {
     "access": "public"
+  },
+  "dependencies": {
+    "solid-js": "^1.9.4"
   }
 }

@@ -1,0 +1,16 @@
+# Ignore local node_modules for this package
+node_modules/
+
+# Ignore build output
+dist/
+*.tsbuildinfo
+*.js.map
+*.d.ts.map
+*.js
+*.d.ts
+
+# Ignore logs
+*.log
+
+# Ignore test coverage
+coverage/
